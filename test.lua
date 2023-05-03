@@ -1,4 +1,4 @@
-spawned = nil
+spawnovan = nil
 
 Citizen.CreateThread(function()
     while true do
@@ -9,8 +9,8 @@ Citizen.CreateThread(function()
                     SpawnLocalCar(i) 
                 end
             else
-                DeleteEntity(Auta[i].spawned)
-                Auta[i].spawned = nil                                
+                DeleteEntity(Auta[i].spawnovan)
+                Auta[i].spawnovan = nil                                
             end
             Wait(500)
         end
@@ -20,8 +20,8 @@ end)
 Citizen.CreateThread(function() 
     while true do
         for i=1, #Auta do
-            if Auta[i].spawned ~= nil and Auta[i].okrecese then
-                SetEntityHeading(Auta[i].spawned, GetEntityHeading(Auta[i].spawned) - 0.3)
+            if Auta[i].spawnovan ~= nil and Auta[i].okrecese then
+                SetEntityHeading(Auta[i].spawnovan, GetEntityHeading(Auta[i].spawnovan) - 0.3)
             end
         end
         Wait(5)
@@ -53,15 +53,15 @@ function SpawnLocalCar(i)
             SetVehicleDoorsLocked(vehicleeee, 2)
         end
         SetVehicleNumberPlateText(vehicleeee, Auta[i].tablice)
-        Auta[i].spawned = vehicleeee
+        Auta[i].spawnovan = vehicleeee
     end)
 end
 
 AddEventHandler('onResourceStop', function(res)
     if res == GetCurrentResourceName() then
         for i=1, #Auta do
-            if Auta[i].spawned ~= nil then
-                DeleteEntity(Auta[i].spawned)
+            if Auta[i].spawnovan ~= nil then
+                DeleteEntity(Auta[i].spawnovan)
             end
         end
     end
