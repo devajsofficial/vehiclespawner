@@ -2,9 +2,9 @@ spawnovan = nil
 
 Citizen.CreateThread(function()
     while true do
-        local dCoords = GetEntityCoords(PlayerPedId())
+        local kordinate = GetEntityCoords(PlayerPedId())
         for i=1, #Auta do  
-            if #(dCoords - Auta[i].Lokacija) < DrawDistance then                                    
+            if #(kordinate - Auta[i].Lokacija) < DrawDistance then                                    
                 if Auta[i].spawned == nil then
                     SpawnLocalCar(i) 
                 end
@@ -38,22 +38,22 @@ function SpawnLocalCar(i)
             if PokusajPonovo > 2000 then return end
             Wait(0)
         end
-        local vehicleeee = CreateVehicle(hash, Auta[i].Lokacija.x, Auta[i].Lokacija.y, Auta[i].Lokacija.z-1,Auta[i].heading, false, false)
+        local autic = CreateVehicle(hash, Auta[i].Lokacija.x, Auta[i].Lokacija.y, Auta[i].Lokacija.z-1,Auta[i].heading, false, false)
         SetModelAsNoLongerNeeded(hash)
-        SetVehicleEngineOn(vehicleeee, false)
-        SetVehicleBrakeLights(vehicleeee, false)
-        SetVehicleLights(vehicleeee, 0)
-        SetVehicleLightsMode(vehicleeee, 0)
-        SetVehicleInteriorlight(vehicleeee, false)
-        SetVehicleOnGroundProperly(vehicleeee)
-        FreezeEntityPosition(vehicleeee, true)
-        SetVehicleCanBreak(vehicleeee, true)
-        SetVehicleFullbeam(vehicleeee, false)
+        SetVehicleEngineOn(autic, false)
+        SetVehicleBrakeLights(autic, false)
+        SetVehicleLights(autic, 0)
+        SetVehicleLightsMode(autic, 0)
+        SetVehicleInteriorlight(autic, false)
+        SetVehicleOnGroundProperly(autic)
+        FreezeEntityPosition(autic, true)
+        SetVehicleCanBreak(autic, true)
+        SetVehicleFullbeam(autic, false)
         if Zakljucano then
-            SetVehicleDoorsLocked(vehicleeee, 2)
+            SetVehicleDoorsLocked(autic, 2)
         end
-        SetVehicleNumberPlateText(vehicleeee, Auta[i].tablice)
-        Auta[i].spawnovan = vehicleeee
+        SetVehicleNumberPlateText(autic, Auta[i].tablice)
+        Auta[i].spawnovan = autic
     end)
 end
 
