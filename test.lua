@@ -2,9 +2,9 @@ spawned = nil
 
 Citizen.CreateThread(function()
     while true do
-        local pCoords = GetEntityCoords(PlayerPedId())
+        local dCoords = GetEntityCoords(PlayerPedId())
         for i=1, #Auta do  
-            if #(pCoords - Auta[i].Lokacija) < DrawDistance then                                    
+            if #(dCoords - Auta[i].Lokacija) < DrawDistance then                                    
                 if Auta[i].spawned == nil then
                     SpawnLocalCar(i) 
                 end
@@ -32,10 +32,10 @@ function SpawnLocalCar(i)
     Citizen.CreateThread(function()
         local hash = GetHashKey(Auta[i].model)
         RequestModel(hash)
-        local tryAgainBitch = 0
+        local PokusajPonovo = 0
         while not HasModelLoaded(hash) do
-            tryAgainBitch = tryAgainBitch + 1
-            if tryAgainBitch > 2000 then return end
+            PokusajPonovo = PokusajPonovo + 1
+            if PokusajPonovo > 2000 then return end
             Wait(0)
         end
         local vehicleeee = CreateVehicle(hash, Auta[i].Lokacija.x, Auta[i].Lokacija.y, Auta[i].Lokacija.z-1,Auta[i].heading, false, false)
