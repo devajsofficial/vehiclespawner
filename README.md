@@ -1,5 +1,5 @@
 ## ESX CAR SPAWN ##
 -Ability to spin
--Custm plates
+-Custom plates
 ## ALL IN CFG ##
 @devajsofficial
