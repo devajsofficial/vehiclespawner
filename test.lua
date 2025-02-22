@@ -2,6 +2,7 @@ spawnovan = nil
 
 Citizen.CreateThread(function()
     while true do
+        
         local kordinate = GetEntityCoords(PlayerPedId())
         for i=1, #Auta do  
             if #(kordinate - Auta[i].Lokacija) < DrawDistance then                                    
