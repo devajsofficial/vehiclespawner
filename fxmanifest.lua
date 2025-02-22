@@ -7,6 +7,6 @@ version '1.0.0'
 
 
 client_scripts {
-'cfg.lua',
-'test.lua'
+'edit.lua',
+'script.lua'
 }
