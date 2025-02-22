@@ -1,13 +1,15 @@
 DrawDistance = 30
 
-Zakljucano = true --locked
+Zakljucano = true --if true then spawned vehicles will be locked
 
 Auta = {
     {
-        model = 'sultan', --car mod
-        Lokacija = vec(214.3503, -799.673, 30.837), --loc
+        model = 'riot', -- vehicle model
+        Lokacija = vec(1234.56, 1235.23, 876.54), --Location
         heading = 215.40,
-        okrecese = true, --rotating
-        tablice = "DEVAJS" --plates
+        okrecese = true, -- if true then spawned vehicle will rotate
+        tablice = "TEST1" --plates on vehicle
 }
 }
+
+-- you can also add more vehicles, there is no limit
